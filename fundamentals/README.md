@@ -61,7 +61,7 @@ key2 = value2
 ```
 
 
-## Pattern Matching with Regular Expressions.
+## Pattern Matching with Regular Expressions
 
 ```
 > var pattern = /t\w*e/g;
