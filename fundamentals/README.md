@@ -30,6 +30,36 @@ for(o in obj) {
 }
 ```
 
+## Iterating Array Elements
+
+```
+var array = new Array("hello", "world");
+
+console.log('array elements:');
+for(o in array) {
+    console.log(o + " = " + array[o]);
+}
+
+array['key1'] = 'value1';
+array['key2'] = 'value2';
+
+console.log('after adding properties:');
+for(o in array) {
+    console.log(o + " = " + array[o]);
+}
+```
+The output is:
+```
+array elements:
+0 = hello
+1 = world
+after adding properties:
+0 = hello
+1 = world
+key1 = value1
+key2 = value2
+```
+
 
 ## Pattern Matching with Regular Expressions.
 
