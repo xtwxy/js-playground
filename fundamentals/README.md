@@ -22,15 +22,16 @@ console.log('toString' in newMap);  // true, cannot delete builting elements.
 
 ```
 > var pattern = /t\w*e/g;
+> var searchString = "this the one of the most valuable object in this world.";
 undefined
-> pattern.exec("this the one of the most valuable object in this world.");
+> pattern.exec(searchString);
 [ 'the',
   index: 5,
   input: 'this the one of the most valuable object in this world.' ]
-> pattern.exec("this the one of the most valuable object in this world.");
+> pattern.exec(searchString);
 [ 'the',
   index: 16,
   input: 'this the one of the most valuable object in this world.' ]
-> pattern.exec("this the one of the most valuable object in this world.");
+> pattern.exec(searchString);
 null
 ```
