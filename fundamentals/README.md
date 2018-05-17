@@ -1,6 +1,6 @@
 # Fundamentals
 
-# Adding and Removing Elements
+## Adding and Removing Elements
 
 ```
 var newMap = {};
@@ -18,7 +18,7 @@ delete newMap['toString'];
 console.log('toString' in newMap);  // true, cannot delete builting elements.
 ```
 
-# Pattern Matching with Regular Expressions.
+## Pattern Matching with Regular Expressions.
 
 ```
 > var pattern = /t\w*e/g;
