@@ -18,6 +18,19 @@ delete newMap['toString'];
 console.log('toString' in newMap);  // true, cannot delete builting elements.
 ```
 
+## Iterating Object Properties
+
+```
+var obj = { 'key0': 'value0' };
+
+obj['key1'] = 'value1';
+
+for(o in obj) {
+    console.log(o + " = " + obj[o]);
+}
+```
+
+
 ## Pattern Matching with Regular Expressions.
 
 ```
