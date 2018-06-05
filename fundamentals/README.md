@@ -118,3 +118,63 @@ module.x = 12
 boundSetX24() = undefined
 module.x = 24
 ```
+## Publish/Subscribe
+Code:
+```
+function Listener(name) {
+    this.name = name;
+    this.events = this.events || [];
+}
+
+Listener.prototype.handle = function(e) {
+    console.log(this.name + ": handle " + e);
+    this.events.push(e);
+};
+
+function EventSource(name) {
+    this.name = name;
+    this.subscribers = this.subscribers || {};
+}
+
+EventSource.prototype.subscribe = function(e, fn) {
+    var l = this.subscribers[e] || [];
+    l.push(fn);
+    this.subscribers[e] = l;
+};
+
+EventSource.prototype.publish = function(e, o) {
+    console.log(this.name + ": publish (" + e + ", " + o + ")");
+    var l = this.subscribers[e] || [];
+    l.forEach(function(t) { 
+        t(o); 
+    });
+};
+
+var l1 = new Listener("listener 1");
+var l2 = new Listener("listener 2");
+var e = new EventSource("event source");
+
+e.subscribe('create', l1.handle.bind(l1));
+e.publish('create', 'hello1');
+e.publish('create', 'world1');
+
+e.subscribe('update', l2.handle.bind(l2));
+e.publish('update', 'hello2');
+e.publish('update', 'world2');
+
+console.log("l1.events = " + l1.events);
+console.log("l2.events = " + l2.events);
+```
+Run output:
+```
+event source: publish (create, hello1)
+listener 1: handle hello1
+event source: publish (create, world1)
+listener 1: handle world1
+event source: publish (update, hello2)
+listener 2: handle hello2
+event source: publish (update, world2)
+listener 2: handle world2
+l1.events = hello1,world1
+l2.events = hello2,world2
+```
