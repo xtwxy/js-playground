@@ -15,7 +15,7 @@ delete newMap['to'];
 console.log('to' in newMap);        // false
 
 delete newMap['toString'];
-console.log('toString' in newMap);  // true, cannot delete builting elements.
+console.log('toString' in newMap);  // true, cannot delete builtin elements.
 ```
 
 ## Iterating Object Properties

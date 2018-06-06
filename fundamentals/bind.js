@@ -16,6 +16,7 @@ var boundGetX = unboundGetX.bind(module);
 var unboundSetX = module.setX;
 var boundSetX = unboundSetX.bind(module);
 var boundSetX24 = unboundSetX.bind(module, 24);
+// partial bind
 var boundSetX25TimesY = module.setXTimesY.bind(module, 25);
 
 console.log('unboundGetX() = ' + unboundGetX());
