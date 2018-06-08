@@ -53,6 +53,24 @@ if ($('#tt').tabs('exists', tabTitle)){
   console.log("tab with title '" + tabTitle + "' does not exist.");
 }
 ```
+## Selecting tabs
 
+Setting a tab panel to be selected and displayed state, with tab title specifically given.
+```
+var tabTitle = 'Hello, World!';
+$('#tt').tabs('select', tabTitle);  // title, or index. not dom element id!
+```
+However, getting current selected and displayed tab panel, for further operations, for instance,
 
+```
+var tabTitle = 'Hello, World!';
+var tab = $('#tt').tabs('getSelected');
+$('#tt').tabs('update', {
+  tab: tab,
+  options: {
+    title: 'Hi, dude!', // update to new title
+    ...
+  }
+});
+```
 
